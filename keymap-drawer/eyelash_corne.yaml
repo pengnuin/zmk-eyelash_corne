@@ -195,7 +195,7 @@ layers:
   - {t: ▽, type: trans}
   - {type: held}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - GAMING
   GAMING:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
