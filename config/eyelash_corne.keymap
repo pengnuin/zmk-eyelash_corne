@@ -1,9 +1,10 @@
 #include <behaviors.dtsi>
 #include <behaviors/num_word.dtsi> // Requires zmk-auto-layer module.
-#include <behaviors/unicode.dtsi> // Requires zmk-unicode module.
-#include <zmk-helpers/helper.h> // Requires zmk-helpers module.
+#include <behaviors/unicode.dtsi>  // Requires zmk-unicode module.
+#include <zmk-helpers/helper.h>    // Requires zmk-helpers module.
 #include <dt-bindings/zmk/keys.h>
-
+#include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/rgb.h>
 
 #ifdef CONFIG_WIRELESS
   #include <dt-bindings/zmk/bt.h>
@@ -14,19 +15,15 @@
   #define _BT_SEL_KEYS_ &trans &trans &trans &trans &trans
 #endif
 
-#define DEF 0
-#define NAV 1
-#define FN 2
-#define NUM 3
-#define SYS 4
+#define DEF   0
+#define NAV   1
+#define NUM   2
+#define FN    3
+#define GAME  4
 #define MOUSE 5
 
 #define XXX &none
 #define ___ &trans
-
-
-
-
 
 /* Global defaults */
 
@@ -145,7 +142,7 @@ ZMK_TRI_STATE(
 
 // Alt+Tab swapper, requires tri-state module.
 ZMK_TRI_STATE(swapper, bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
-	ignored-key-positions = <
+    ignored-key-positions = <
         17 23             // Left Shift (F) & Right Shift (J)
         6 19 20 21 35     // Center Joystick: UP, LEFT, ENTER, RIGHT, DOWN
         22 24 25          // Right hand H, K, L arrows
@@ -190,7 +187,7 @@ ZMK_TAP_DANCE(copy_cut, bindings = <&kp LC(INS)>, <&kp LC(X)>;
 // Sticky shift + leader.
 ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
 
-// Misc aliases. [TODO: clean up]
+// Misc aliases.
 #define CANCEL    &kp K_CANCEL            // Cancel caps-word & auto-layers.
 #define DSK_PREV  &hmr LCTRL LG(LC(LEFT)) // Previous desktop.
 #define DSK_NEXT  &hmr LALT LG(LC(RIGHT)) // Next     desktop.
@@ -227,19 +224,19 @@ ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
       display-name = "QWERTY";
       bindings = <
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp TAB       &kp Q         &kp W         &kp E         &kp R         &kp T       ,     &kp UP    ,     &kp Y         &kp U         &kp I         &kp O         &kp P         &bs_del     ,
+    &kp TAB       &kp Q         &kp W         &kp E         &kp R         &kp T             &kp UP            &kp Y         &kp U         &kp I         &kp O         &kp P         &bs_del     
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp ESC       &hml LGUI A   &hml LALT S   &hml LCTRL D  &hml LSHFT F  &kp G       ,   &kp LEFT    ,     &kp H         &hmr RSHFT J  &hmr RCTRL K  &hmr RALT L   &hmr RGUI SEMI &kp SQT    ,
+    &kp ESC       &hml LGUI A   &hml LALT S   &hml LCTRL D  &hml LSHFT F  &kp G             &kp LEFT          &kp H         &hmr RSHFT J  &hmr RCTRL K  &hmr RALT L   &hmr RGUI SEMI &kp SQT    
 //│             │             │             │             │             │             │ ├─────────────┤ │             │             │             │             │             │             │
-                                                                                            &kp ENTER   ,
+                                                                                            &kp ENTER   
 //│             │             │             │             │             │             │ ├─────────────┤ │             │             │             │             │             │             │
-                                                                                            &kp RIGHT   ,
+                                                                                            &kp RIGHT   
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp GRAVE     &kp Z         &kp X         &kp C         &kp V         &kp B       ,     &kp C_MUTE  ,     &kp N         &kp M         &comma_morph  &dot_morph    &qexcl        &kp ENTER   ,
+    &kp GRAVE     &kp Z         &kp X         &kp C         &kp V         &kp B             &kp C_MUTE        &kp N         &kp M         &comma_morph  &dot_morph    &qexcl        &kp ENTER     
 //│             │             │             │             │             │             │ ├─────────────┤ │             │             │             │             │             │             │
-                                                                                            &kp DOWN    ,
+                                                                                            &kp DOWN    
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┴─────────────┤ ╰─────────────╯ ├─────────────┴─────────────┼─────────────┴─────────────┼─────────────┴─────────────╯
-                                              &kp LGUI      SMART_NUM     &kp SPACE   ,                    &lt FN ESC     &mo NAV       &kp RALT
+                                              &kp LGUI      SMART_NUM     &kp SPACE                         &lt FN ESC    &mo NAV       &kp RALT
 //                                          ╰─────────────┴─────────────┴─────────────╯                 ╰─────────────┴─────────────┴─────────────╯
       >;
       sensor-bindings = <&rsr_vol &rsr_trans>;
@@ -249,19 +246,63 @@ ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
       display-name = "NAV/CLIP";
       bindings = <
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    ___           ___           ___           ___           ___           ___         ,   &mmv MOVE_UP  ,   &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)     &kp LC(A)     NAV_DEL     ,
+    ___           ___           ___           ___           ___           ___               &mmv MOVE_UP      &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)     &kp LC(A)     NAV_DEL     
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    ___           ___           ___           ___           ___           ___         , &mmv MOVE_LEFT  ,   NAV_LEFT      NAV_DOWN      NAV_UP        NAV_RIGHT     &kp HOME      &kp END     ,
+    ___           ___           ___           ___           ___           ___             &mmv MOVE_LEFT      NAV_LEFT      NAV_DOWN      NAV_UP        NAV_RIGHT     &kp HOME      &kp END     
 //│             │             │             │             │             │             │ ├─────────────┤ │             │             │             │             │             │             │
-                                                                                            &mkp LCLK   ,
+                                                                                            &mkp LCLK   
 //│             │             │             │             │             │             │ ├─────────────┤ │             │             │             │             │             │             │
-                                                                                          &mmv MOVE_RIGHT,
+                                                                                          &mmv MOVE_RIGHT
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    ___           ___           ___           ___           ___           ___         ,     ___       ,   &kp PG_DN     &kp PG_UP     &kp INS       ___           ___           ___         ,
+    ___           ___           ___           ___           ___           ___               ___               &kp PG_DN     &kp PG_UP     &kp INS       ___           ___           ___         
 //│             │             │             │             │             │             │ ├─────────────┤ │             │             │             │             │             │             │
-                                                                                          &mmv MOVE_DOWN,
+                                                                                          &mmv MOVE_DOWN
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┴─────────────┤ ╰─────────────╯ ├─────────────┴─────────────┼─────────────┴─────────────┼─────────────┴─────────────╯
-                                              ___           ___           ___         ,                   ___           ___           ___
+                                              ___           ___           ___                               ___           ___           ___
+//                                          ╰─────────────┴─────────────┴─────────────╯                 ╰─────────────┴─────────────┴─────────────╯
+      >;
+      sensor-bindings = <&rsr_vol &rsr_trans>;
+    };
+
+    Num {
+      display-name = "NUM/SYM";
+      bindings = <
+//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    ___           &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT         &mmv MOVE_UP      &kp N7        &kp N8        &kp N9        &kp MINUS     &kp EQUAL     &kp BSPC    
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    ___           ___           &mkp LCLK     &mkp MCLK     &mkp RCLK     &mkp MB4        &mmv MOVE_LEFT      &kp N4        &kp N5        &kp N6        &kp LBKT      &kp RBKT      &kp BSLH    
+//│             │             │             │             │             │             │ ├─────────────┤ │             │             │             │             │             │             │
+                                                                                            &mkp LCLK   
+//│             │             │             │             │             │             │ ├─────────────┤ │             │             │             │             │             │             │
+                                                                                          &mmv MOVE_RIGHT
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    ___           &out OUT_USB  &out OUT_BLE  XXX           XXX           &mkp MB5          ___               &kp N1        &kp N2        &kp N3        &kp N0        &kp DOT       ___         
+//│             │             │             │             │             │             │ ├─────────────┤ │             │             │             │             │             │             │
+                                                                                          &mmv MOVE_DOWN
+//╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┴─────────────┤ ╰─────────────╯ ├─────────────┴─────────────┼─────────────┴─────────────┼─────────────┴─────────────╯
+                                              ___           ___           ___                               ___           &kp RET       ___
+//                                          ╰─────────────┴─────────────┴─────────────╯                 ╰─────────────┴─────────────┴─────────────╯
+      >;
+      sensor-bindings = <&rsr_vol &rsr_trans>;
+    };
+
+    Fn {
+      display-name = "FN/SYS";
+      bindings = <
+//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    &studio_unlock &kp F1       &kp F2        &kp F3        &kp F4        &kp F5            &mmv MOVE_UP      &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &to GAME    
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    ___                        _BT_SEL_KEYS_                                          &mmv MOVE_LEFT      &bootloader   &mkp LCLK     &mkp MCLK     &mkp RCLK     &kp PRINTSCREEN &kp F12   
+//│             │             │             │             │             │             │ ├─────────────┤ │             │             │             │             │             │             │
+                                                                                            &mkp LCLK   
+//│             │             │             │             │             │             │ ├─────────────┤ │             │             │             │             │             │             │
+                                                                                          &mmv MOVE_RIGHT
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    ___           &sys_reset    ___           &bootloader   ___           &mkp MB5          &kp C_MUTE        ___           ___           &bootloader   &sys_reset    &kp SCROLLLOCK &kp PAUSE_BREAK
+//│             │             │             │             │             │             │ ├─────────────┤ │             │             │             │             │             │             │
+                                                                                          &mmv MOVE_DOWN
+//╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┴─────────────┤ ╰─────────────╯ ├─────────────┴─────────────┼─────────────┴─────────────┼─────────────┴─────────────╯
+                                              ___           ___           ___                               ___           ___           ___
 //                                          ╰─────────────┴─────────────┴─────────────╯                 ╰─────────────┴─────────────┴─────────────╯
       >;
       sensor-bindings = <&rsr_vol &rsr_trans>;
@@ -271,19 +312,19 @@ ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
       display-name = "GAMING";
       bindings = <
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp TAB       &kp Q         &kp W         &kp E         &kp R         &kp T       ,     &kp N1      ,     &kp Y         &kp U         &kp I         &kp O         &to DEF       &kp BSPC    ,
+    &kp TAB       &kp Q         &kp W         &kp E         &kp R         &kp T             &kp N1            &kp Y         &kp U         &kp I         &kp O         &to DEF       &kp BSPC    
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp ESC       &kp A         &kp S         &kp D         &kp F         &kp G       ,     &kp N2      ,     &kp H         &kp J         &kp K         &kp L         &kp SEMI      &kp SQT     ,
+    &kp ESC       &kp A         &kp S         &kp D         &kp F         &kp G             &kp N2            &kp H         &kp J         &kp K         &kp L         &kp SEMI      &kp SQT     
 //│             │             │             │             │             │             │ ├─────────────┤ │             │             │             │             │             │             │
-                                                                                            ___         ,
+                                                                                            ___         
 //│             │             │             │             │             │             │ ├─────────────┤ │             │             │             │             │             │             │
-                                                                                            &kp N3      ,
+                                                                                            &kp N3      
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp LSHFT     &kp Z         &kp X         &kp C         &kp V         &kp B       ,     ___         ,     &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &kp ENTER   ,
+    &kp LSHFT     &kp Z         &kp X         &kp C         &kp V         &kp B             ___               &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &kp ENTER   
 //│             │             │             │             │             │             │ ├─────────────┤ │             │             │             │             │             │             │
-                                                                                            ___         ,
+                                                                                            ___         
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┴─────────────┤ ╰─────────────╯ ├─────────────┴─────────────┼─────────────┴─────────────┼─────────────┴─────────────╯
-                                              &kp LALT      &kp SPACE     &kp LCTRL   ,                   &to DEF       &kp SPACE     &kp RALT
+                                              &kp LALT      &kp SPACE     &kp LCTRL                         &to DEF       &kp SPACE     &kp RALT
 //                                          ╰─────────────┴─────────────┴─────────────╯                 ╰─────────────┴─────────────┴─────────────╯
       >;
       sensor-bindings = <&rsr_vol &rsr_trans>;
