@@ -43,12 +43,12 @@ layers:
   - '&qexcl'
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - $$mdi:arrow-down-bold$$
-  - LGUI
+  - '&swapper'
   - '&smart_num 3 0'
   - $$mdi:keyboard-space$$
   - {t: '$$mdi:keyboard-esc$$', h: GAMING}
   - NAV/CLIP
-  - $$mdi:apple-keyboard-option$$
+  - '&magic_shift LSHFT 0'
   NAV/CLIP:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
