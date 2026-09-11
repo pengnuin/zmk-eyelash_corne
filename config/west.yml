@@ -36,7 +36,7 @@ manifest:
       revision: main
     - name: zmk-auto-layer
       remote: urob
-      revision: zmk-v0.3.0.0
+      revision: v0.3
     - name: zmk-unicode
       remote: urob
       revision: main
