@@ -46,7 +46,7 @@ manifest:
     - name: zmk-adaptive-key
       remote: urob
       revision: main
-      - name: zmk-leader-key
+    - name: zmk-leader-key
       remote: urob
       revision: main
   self:
