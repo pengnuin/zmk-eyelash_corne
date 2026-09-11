@@ -229,7 +229,7 @@ ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
 //│             │             │             │             │             │             │ ├─────────────┤ │             │             │             │             │             │             │
                                                                                             &kp DOWN    
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┴─────────────┤ ╰─────────────╯ ├─────────────┴─────────────┼─────────────┴─────────────┼─────────────┴─────────────╯
-                                              &kp LGUI      SMART_NUM     &kp SPACE                         &lt FN ESC    &mo NAV       &kp RALT
+                                              &swapper      SMART_NUM     &kp SPACE                         &lt FN ESC    &mo NAV     MAGIC_SHIFT
 //                                          ╰─────────────┴─────────────┴─────────────╯                 ╰─────────────┴─────────────┴─────────────╯
       >;
       sensor-bindings = <&rsr_vol &rsr_trans>;
