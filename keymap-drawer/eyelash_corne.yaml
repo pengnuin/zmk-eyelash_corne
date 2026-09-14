@@ -43,12 +43,12 @@ layers:
   - '&qexcl'
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - $$mdi:arrow-down-bold$$
-  - '&swapper'
-  - '&smart_num 3 0'
-  - $$mdi:keyboard-space$$
-  - {t: '$$mdi:keyboard-esc$$', h: GAMING}
-  - NAV/CLIP
   - '&magic_shift LSHFT 0'
+  - '&smart_num 2 0'
+  - $$mdi:keyboard-space$$
+  - {t: '$$mdi:keyboard-esc$$', h: FN/SYS}
+  - NAV/CLIP
+  - '&swapper'
   NAV/CLIP:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -160,7 +160,7 @@ layers:
   - F8
   - F9
   - F10
-  - {t: NUM/SYM, h: toggle}
+  - {t: GAMING, h: toggle}
   - {t: '$$mdi:transfer$$', type: trans}
   - {h: '1', s: '$$mdi:bluetooth-connect$$'}
   - {h: '2', s: '$$mdi:bluetooth-connect$$'}
@@ -193,55 +193,55 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   GAMING:
-  - $$mdi:keyboard-tab$$
-  - Q
-  - W
-  - E
-  - R
-  - T
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '1', s: '!'}
-  - Y
-  - U
-  - I
-  - O
-  - {t: QWERTY, h: toggle}
-  - {t: '$$mdi:backspace$$', type: backspace}
-  - $$mdi:keyboard-esc$$
-  - A
-  - S
-  - D
-  - F
-  - G
-  - {t: '2', s: '@'}
-  - H
-  - J
-  - K
-  - L
-  - {t: ;, s: ':'}
-  - {t: '''', s: '"'}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '3', s: '#'}
-  - $$mdi:apple-keyboard-shift$$
-  - Z
-  - X
-  - C
-  - V
-  - B
-  - {t: '$$mdi:transfer$$', type: trans}
+  - R
+  - Q
   - N
-  - M
-  - {t: ',', s: <}
-  - {t: ., s: '>'}
-  - {t: /, s: '?'}
-  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - E
+  - T
+  - $$mdi:keyboard-tab$$
   - {t: '$$mdi:transfer$$', type: trans}
-  - $$mdi:apple-keyboard-option$$
-  - $$mdi:keyboard-space$$
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '2', s: '@'}
+  - F
+  - A
+  - W
+  - D
+  - G
+  - $$mdi:apple-keyboard-shift$$
+  - {t: '5', s: '%'}
+  - {t: '4', s: $}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - B
+  - X
+  - S
+  - C
+  - M
   - $$mdi:apple-keyboard-control$$
-  - {t: QWERTY, h: toggle, type: held}
+  - {t: '3', s: '#'}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:keyboard-space$$
-  - $$mdi:apple-keyboard-option$$
+  - {t: QWERTY, h: toggle}
+  - {t: '$$mdi:transfer$$', type: trans}
