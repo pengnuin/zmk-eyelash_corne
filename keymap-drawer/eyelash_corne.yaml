@@ -111,7 +111,7 @@ layers:
   - {t: '9', s: (}
   - {t: '-', s: _}
   - {t: '=', s: +}
-  - {t: '$$mdi:backspace$$', type: backspace}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:mouse-left-click-outline$$
