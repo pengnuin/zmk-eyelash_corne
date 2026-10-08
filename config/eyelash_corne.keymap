@@ -228,7 +228,7 @@ ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
     Nav {
       display-name = "NAV/CLIP";
       bindings = <
-    ___             ___   Ò	          ___             ___             ___             ___                             &mmv MOVE_UP                    &kp LC(Z)       &kp LC(X)       &kp LC(C)       &kp LC(V)       &kp LC(A)       NAV_DEL
+    ___             ___  	          ___             ___             ___             ___                             &mmv MOVE_UP                    &kp LC(Z)       &kp LC(X)       &kp LC(C)       &kp LC(V)       &kp LC(A)       NAV_DEL
     ___             ___             ___             ___             ___             ___             &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT NAV_LEFT        NAV_DOWN        NAV_UP          NAV_RIGHT       &kp HOME        &kp END
     ___             ___             ___             ___             ___             ___             ___             &mmv MOVE_DOWN                  &kp PG_DN       &kp PG_UP       &kp INS         ___             ___             ___
                                                     ___             ___             ___                                                             ___             ___             ___
