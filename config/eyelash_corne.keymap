@@ -228,7 +228,7 @@ ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
     Nav {
       display-name = "NAV/CLIP";
       bindings = <
-    ___             ___             ___             ___             ___             ___                             &mmv MOVE_UP                    &kp LC(Z)       &kp LC(X)       &kp LC(C)       &kp LC(V)       &kp LC(A)       NAV_DEL
+    ___             ___   Ò	          ___             ___             ___             ___                             &mmv MOVE_UP                    &kp LC(Z)       &kp LC(X)       &kp LC(C)       &kp LC(V)       &kp LC(A)       NAV_DEL
     ___             ___             ___             ___             ___             ___             &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT NAV_LEFT        NAV_DOWN        NAV_UP          NAV_RIGHT       &kp HOME        &kp END
     ___             ___             ___             ___             ___             ___             ___             &mmv MOVE_DOWN                  &kp PG_DN       &kp PG_UP       &kp INS         ___             ___             ___
                                                     ___             ___             ___                                                             ___             ___             ___
@@ -239,7 +239,7 @@ ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
     Num {
       display-name = "NUM/SYM";
       bindings = <
-    ___             &kp EXCL        &kp AT          &kp HASH        &kp DLLR        &kp PRCNT                       &mmv MOVE_UP                    &kp N7          &kp N8          &kp N9          &kp MINUS       &kp EQUAL       &kp BSPC
+    ___             &kp EXCL        &kp AT          &kp HASH        &kp DLLR        &kp PRCNT                       &mmv MOVE_UP                    &kp N7          &kp N8          &kp N9          &kp MINUS       &kp EQUAL       ___
     ___             ___             &mkp LCLK       &mkp MCLK       &mkp RCLK       &mkp MB4        &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT &kp N4          &kp N5          &kp N6          &kp LBKT        &kp RBKT        &kp BSLH
     ___             ___             ___             XXX             XXX             &mkp MB5        ___             &mmv MOVE_DOWN                  &kp N1          &kp N2          &kp N3          &kp N0          &kp DOT         ___
                                                     ___             ___             ___                                                             ___             &kp RET         ___
