@@ -44,7 +44,7 @@
     combo_under { timeout-ms = <COMBO_TERM_SLOW>; require-prior-idle-ms = <COMBO_IDLE_SLOW>; key-positions = <4 17>;  layers = <ALL>; bindings = <&kp UNDER>; };     // R + F -> _
     combo_plus  { timeout-ms = <COMBO_TERM_SLOW>; require-prior-idle-ms = <COMBO_IDLE_SLOW>; key-positions = <8 23>;  layers = <ALL>; bindings = <&kp PLUS>; };      // U + J -> +
     combo_equal { timeout-ms = <COMBO_TERM_SLOW>; require-prior-idle-ms = <COMBO_IDLE_SLOW>; key-positions = <9 24>;  layers = <ALL>; bindings = <&kp EQUAL>; };     // I + K -> =
-    combo_bslh  { timeout-ms = <COMBO_TERM_SLOW>; require-prior-idle-ms = <COMBO_IDLE_SLOW>; key-positions = <5 18>;  layers = <ALL>; bindings = <&kp BSLH>; };      // T + G -> \
+    combo_bslh  { timeout-ms = <COMBO_TERM_SLOW>; require-prior-idle-ms = <COMBO_IDLE_SLOW>; key-positions = <5 18>;  layers = <ALL>; bindings = <&kp BSLH>; };      // T + G -> Backslash
     combo_fslh  { timeout-ms = <COMBO_TERM_SLOW>; require-prior-idle-ms = <COMBO_IDLE_SLOW>; key-positions = <7 22>;  layers = <ALL>; bindings = <&kp FSLH>; };      // Y + H -> /
 
     /* =========================================================================
