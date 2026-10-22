@@ -258,7 +258,7 @@ ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
       display-name = "FN/SYS";
       bindings = <
     &studio_unlock  &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                          &mmv MOVE_UP                    &kp F6          &kp F7          &kp F8          &kp F9          &kp F10         &to GAME
-    ___             _BT_SEL_KEYS_                                                                   &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT ___             &mkp LCLK       &mkp MCLK       &mkp RCLK       &kp PRINTSCREEN &kp F12
+    ___             _BT_SEL_KEYS_                                                                   &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT &kp F11         &mkp LCLK       &mkp MCLK       &mkp RCLK       &kp PRINTSCREEN &kp F12
     ___             &sys_reset      ___             &bootloader     ___             &mkp MB5        ___             &mmv MOVE_DOWN                  ___             ___             &bootloader     &sys_reset      &kp SCROLLLOCK  &kp PAUSE_BREAK
                                                     ___             ___             ___                                                             ___             ___             ___
       >;
@@ -270,7 +270,7 @@ ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
       bindings = <
     ___             ___             ___             ___             ___             ___                             &kp N1                          &kp R           &kp Q           &kp N           &kp E           &kp T           &kp TAB
     ___             ___             ___             ___             ___             ___             &kp N2          &kp N5          &kp N4          &kp F           &kp A           &kp W           &kp D           &kp G           &kp LSHIFT
-    ___             ___             ___             ___             ___             ___             ___             &kp N3                          &kp B           &kp X           &kp S           &kp C           &kp M           &kp LCTRL
+    ___             ___             ___             ___             ___             ___             ___             &kp N3                          &kp B           &kp X           &kp S           &kp C           &kp M           &kp /
                                                     ___             ___             ___                                                             &kp SPACE       &to DEF         ___
       >;
       sensor-bindings = <&rsr_vol &rsr_trans>;
